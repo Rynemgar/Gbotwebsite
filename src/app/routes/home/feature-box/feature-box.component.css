@@ -1,0 +1,14 @@
+:host {
+  flex: 0.3;
+  font-family: 'Source Sans Pro',Helvetica,Arial,Lucida,sans-serif;
+  font-size: 16px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.8em;
+  background-color: rgba(60,60,200,0.2);
+  border: 2px solid #4328B7;
+  padding: 30px 16px;
+  box-shadow: 0 2px 60px 0 rgba(60,60,200,0.4);
+  text-align: center;
+  margin: 2px;
+  display: block;
+}
