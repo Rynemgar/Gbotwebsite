@@ -3,3 +3,41 @@
     margin: auto;
     background-color:rgb(1, 1, 78);
 }
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.column {
+  float: left;
+}
+.left, .right {
+  width: 40%;
+  align-self: center;
+}
+
+.middle {
+  width: 20%;
+}
+
+@media screen and (max-width: 700px) {
+  .column {
+    width: 100%;
+  }
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+h1 {
+  color: antiquewhite;
+  padding-top: 25px;
+}
+
+.clear {
+  display: block;
+  width: 1px;
+  clear: both;
+}
