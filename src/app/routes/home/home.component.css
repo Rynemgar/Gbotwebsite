@@ -2,7 +2,31 @@
 }
 
 .header {
-  padding: 0 13%;
+  padding: 0 20%;
   display: block;
-  background-image: linear-gradient(180deg,#081e63 0%,#001030 100%);
+  }
+
+.body {
+    margin: 0 13%;
+    padding-top: 25px;
+    display: block;
+   }
+
+.box {
+    font-family: 'Source Sans Pro',Helvetica,Arial,Lucida,sans-serif;
+    font-size: 16px;
+    color: rgba(255,255,255,0.7)!important;
+    line-height: 1.8em;
+    background-color: rgba(60,60,200,0.2);
+    border-width: 2px;
+    border-style: solid;
+    border-color: #4328B7;
+    padding-top: 30px!important;
+    padding-right: 16px!important;
+    padding-bottom: 30px!important;
+    padding-left: 16px!important;
+    box-shadow: 0px 2px 60px 0px rgba(60,60,200,0.4);
+    text-align: center;
+    margin: 2px;
+    display: block;
 }
