@@ -10,6 +10,7 @@
 .header {
   padding: 0 13%;
   display: block;
+  text-align: center;
 }
 
 .body {
@@ -47,4 +48,5 @@
 .paracent {
   text-align: center;
   line-height: 1.6;
+  color: antiquewhite;
 }
