@@ -1,6 +1,12 @@
 :host {
 }
 
+@media screen and (max-width: 900px) {
+  .column {
+    width: 100%;
+  }
+}
+
 .header {
   padding: 0 13%;
   display: block;
@@ -10,7 +16,6 @@
   margin: 0 13%;
   padding-top: 25px;
   display: flex;
-  flex-flow: row nowrap;
   align-items: center;
   justify-content: space-around;
 }
@@ -19,7 +24,6 @@
   margin: 0 20%;
   padding-top: 25px;
   display: flex;
-  flex-flow: row nowrap;
   align-items: center;
   justify-content: space-around;
 }
@@ -40,8 +44,7 @@ trans {
   margin-bottom: 30px;
 }
 
-@media screen and (max-width: 900px) {
-  .column {
-    width: 100%;
-  }
+.paracent {
+  text-align: center;
+  line-height: 1.6;
 }
