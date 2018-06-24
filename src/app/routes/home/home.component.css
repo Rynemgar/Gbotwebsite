@@ -2,7 +2,7 @@
 }
 
 .header {
-  padding: 0 20%;
+  padding: 0 13%;
   display: block;
 }
 
@@ -13,4 +13,35 @@
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-around;
+}
+
+.close {
+  margin: 0 20%;
+  padding-top: 25px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+trans {
+  transform: all;
+  transition-duration: 1s;
+}
+
+.image {
+  height: 600px;
+}
+
+.sect {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 900px) {
+  .column {
+    width: 100%;
+  }
 }
