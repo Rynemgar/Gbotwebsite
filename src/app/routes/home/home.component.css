@@ -15,7 +15,7 @@
 .body {
   margin: 0 13%;
   padding-top: 25px;
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: space-around;
 }
@@ -23,13 +23,13 @@
 .close {
   margin: 0 20%;
   padding-top: 25px;
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: space-around;
 }
 
-trans {
-  transform: all;
+.trans {
+  transition: all 0.1s;
   transition-duration: 1s;
 }
 
