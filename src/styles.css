@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 .content {
     margin: auto;
-    background-image: linear-gradient(180deg,#081e63 0%,#001030 100%);
+    background-color: linear-gradient(180deg,#081e63 0%,#001030 100%);
 }
 ul {
   list-style-type: none;
@@ -33,7 +33,7 @@ ul {
 }
 
 .third {
-    width: 30%;
+    width: 33%;
 }
 
 .half {
@@ -143,4 +143,35 @@ h1 {
     left: 0px;
     background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABC0lEQVRIie3ULUsEURTG8Z+yiBg3GUwmMRiNYhCj4AtqFtNi8gMIfgY/gdEkGy02EZNBBBUMvmHaKmyQMcxddlhn3JnlbhD2DweeyzDPOXPOmcuI/8hcgY5GCytBv2V0NBK0cYBFPAcdNUEnTjCLm6AnYidIcIEZnAVdr2I2iWUco4m7nAQJHjGPI9wrMfx6MP0oMMyLFlaxjZegc1nDZwXjbLTR0B1+Y7zH/BDnmO73iYOwj+8BK8+2aFemRWPBfAHXmArnd1ziFq/4Qk06m9Oc4p6wjh1sYRMPnYc1XIXqm9Kt6W1dlspruiFdv6U/TIsSlPrR9nRbUzbBr22p8H5fhn7ZDf26HhGXHxIybXqDfwJ7AAAAAElFTkSuQmCC") no-repeat left center transparent;
     background-size: 100% 100%;
+}
+
+.parallax {
+  /* The image used */
+  background-image: url("assets/glad_turt2.png");
+  background-color: #001030;
+
+  /* Set a specific height */
+  min-height: 75%; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg {
+  background-color: #00103096
+}
+
+.imgcnt {
+  display: block;
+  margin: auto;
+  width: 50%;
+  max-width: 75%;
+}
+
+img { 
+  max-width: 100%; 
+  height: auto; 
 }

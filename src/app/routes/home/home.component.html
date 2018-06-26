@@ -1,7 +1,7 @@
 <header class="header">
   <div class="column left">
     <img width="300" alt="Gladiator Bot Logo"
-         src="http://gladiator-bot.infinityws.co.uk/wp-content/uploads/2018/06/Logo.png">
+         src="assets/Logo.png">
   </div>
   <div class="column middle">
     <h1>
@@ -13,7 +13,7 @@
   </div>
   <div class="column right">
     <img width="300" alt="TurtleCoin Logo"
-         src="http://gladiator-bot.infinityws.co.uk/wp-content/uploads/2018/06/trtlLogo.png">
+         src="assets/trtlLogo.png">
   </div>
   <span class="clear"></span>
 </header>
@@ -22,25 +22,25 @@
 <section class="sect body">
   <div class="column left2">
     <app-feature-box
-      class="trans"
-      imageUrl="http://gladiator-bot.infinityws.co.uk/wp-content/uploads/2018/06/Crypto_Icon_13.png"
+      class="trans box"
+      imageUrl="assets/Crypto_Icon_13.png"
       title="Colosseum"
-      content="Gladiator Bot presides over battles in the Colosseum channel located within Turtle Coin’s official discord.
+      content="Gladiator Bot controls battles in the Colosseum channel located within Turtle Coin’s official discord.
   Players can use a variety of commands to taunt each other and challenge opponents to a fight to the death!"
     ></app-feature-box>
   </div>
   <div class="column middle2">
     <app-feature-box
-      class="trans"
-      imageUrl="http://gladiator-bot.infinityws.co.uk/wp-content/uploads/2018/06/Crypto_Icon_15.png"
+      class="trans box"
+      imageUrl="assets/Crypto_Icon_15.png"
       title="JAVASCRIPT"
       content="Coded in Javascript, Gladiator Bot is completely open source and can be found on Github at www.github.com/rynemgar/gladiator-bot"
     ></app-feature-box>
   </div>
   <div class="column right2">
     <app-feature-box
-      class="trans"
-      imageUrl="http://gladiator-bot.infinityws.co.uk/wp-content/uploads/2018/06/Crypto_Icon_14.png"
+      class="trans box"
+      imageUrl="assets/Crypto_Icon_14.png"
       title="TOURNAMENTS"
       content="Where’s the fun with no reward?
           Keep track of your scores with a running total of your overall wins and losses and earn TRTL by fighting and climbing the weekly leaderboard.
@@ -58,8 +58,8 @@
        value="FIGHT FOR YOUR LIFE IN THE COLOSSEUM">
 </div>
 
-<section class="sect body">
-  <div class="column twothird">
+<section class="sect bodywide">
+  <div class="column twothird bg">
     <h1 class="head">Bot features</h1>
     <p class="para">Gladiator Bot was designed first off with some fun functions to use in chat. For example, typing
       *shoot @user will randomly select one in 6 phrases to respond with. Were you out of arrows, or did you get your
@@ -69,12 +69,13 @@
       during battle.
       Low on HP, pop a potion and regain 30hp. Gladiator Bot hands out rewards like candy so we needed a way to top his
       coffers back up! Therefore, each potion is purchasable for 150 TRTL.</p>
-    </div>
-  <img class="image column third"
-       src="http://gladiator-bot.infinityws.co.uk/wp-content/uploads/2018/06/crypto_illustration_19.png">
+    </div><br><br>
+  <div class="column third">
+    <img class="image imagemargin" src="assets/crypto_illustration_19.png">
+  </div>
 </section>
 
-<section class="sect body">
+<section class="sect body parallax">
     <div class="column paracent"><h1 class="head">How Combat Works</h1>
     <p class="para">Built as a turn based battle, fighters take turns to batter their opponent’s life from their body
       using 3 commands.<br>
@@ -89,3 +90,58 @@
   </div>
 </section>
 
+<section>
+  <div class="imgcnt">
+  <img src="assets/crypto_illustration_02.png">
+  </div>
+</section>
+
+
+<section class="bodyleft">
+  <div class="column twothird">
+    <h1 class="head">Stats and what they will do</h1>
+    <p class="para">Stats are currently in build phase.  This means that at present, although you level up by fighting, your level is just for bragging rights!
+       However, in future, stats will have meaning and will be able to be upgraded by tipping Gladiator Bot to train you.</p>
+       <br><br>
+    <input type="button"
+           onclick="window.location.href='http://chat.turtlecoin.lol'" class="button2"
+           value="Check your stats">
+  </div>
+  </section>
+  <section class="bodywide">
+  <div class="column third">
+      <app-feature-box
+        class="trans"
+        imageUrl="assets/Crypto_Icon_14.png"
+        title="HIT POINTS"
+        content="To begin, you will always start with 100hp.
+        Whilst this is a relatively normal starting amount.  It can be reduced quickly by a lucky opponent.  Two headshots and you’re done… No matter how unlikely that is!"
+      ></app-feature-box>
+    </div>
+</section>
+<section class="body">
+    <div class="column left2">
+        <app-feature-box
+          class="trans aleft"
+          imageUrl="assets/Crypto_Icon_14.png"
+          title="DEFENSE"
+          content="Defence will aim to reduce incoming damage. Meaning your opponent will have to try that much harder to defeat you. Damage reduction will not be a set amount but a chance of reducing damage from each attack."
+        ></app-feature-box>
+      </div>
+      <div class="column middle2">
+        <app-feature-box
+          class="trans aleft"
+          imageUrl="assets/Crypto_Icon_14.png"
+          title="TURTLE POWER"
+          content="Otherwise known as Strength!  This will give you a chance of increasing your attack strength.  Attacks will have a minimum damage and a maximum damage with a random number being generated from within your strength range."
+        ></app-feature-box>
+      </div>
+      <div class="column right2">
+        <app-feature-box
+          class="trans aleft"
+          imageUrl="assets/Crypto_Icon_14.png"
+          title="AGILITY"
+          content="Critical strike and increased hit chance. Hits on the head are incredibly hard to hit. Agility will increase the chance of hitting, it will not make shots easy.  Agility will boost your chance by tiny amounts.  But, a boost is a boost!"
+        ></app-feature-box>
+      </div>
+</section>

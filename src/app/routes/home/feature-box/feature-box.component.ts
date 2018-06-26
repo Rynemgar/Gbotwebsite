@@ -6,7 +6,6 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./feature-box.component.css']
 })
 export class FeatureBoxComponent implements OnInit {
-
   @Input() imageUrl: string;
   @Input() title: string;
   @Input() content: string;
