@@ -43,6 +43,8 @@ ul {
 @media screen and (max-width: 900px) {
   .column {
     width: 100%;
+    margin: auto;
+    text-align: center;
   }
 }
 /* Clear floats after the columns */
@@ -155,9 +157,9 @@ h1 {
 
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
-  background-position: fixed;
+  background-position: relative;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
 }
 
 .bg {
