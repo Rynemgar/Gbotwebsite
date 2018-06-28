@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class ApiService {
   baseUrlleader = 'https://gbotapi.herokuapp.com/api/levels';
-  baseUrlstats = 'http://localhost:1337/api/stats';
+  baseUrlstats = 'http://gbotapi.herokuapp.com/api/stats';
   constructor(private http: HttpClient) {}
 
   getLeaderboard() {
