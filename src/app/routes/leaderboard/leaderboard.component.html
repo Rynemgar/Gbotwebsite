@@ -1,4 +1,9 @@
 <div class="body">
-<h1 class="head">Leaderboard</h1>
-<p class="para">COMING SOON - For current leaderboard use the command *leader within the colosseum</p>
+    <ng-container>
+        <table>
+            <tr><th>Username</th> <th>Level</th> <th>Wins</th> <th>Losses</th></tr>
+            <tr *ngFor="let entry of leaderboard">
+            <td>{{entry.username}}</td><td>{{entry.Level}}</td><td>{{entry.Wins}}</td><td>{{entry.Losses}}</td></tr>
+        </table>
+    </ng-container>
 </div>
