@@ -43,7 +43,6 @@ ul {
 @media screen and (max-width: 900px) {
   .column {
     width: 100%;
-    margin: auto;
     text-align: center;
   }
 }
@@ -65,7 +64,6 @@ h1 {
 .para {
   color: antiquewhite;
   font-size: 20px;
-  padding-right: 50px;
 }
 
 .clear {

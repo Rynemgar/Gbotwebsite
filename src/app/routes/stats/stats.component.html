@@ -1,0 +1,9 @@
+<div class="body">
+    <ng-container>
+        <table>
+            <tr><th>Username</th> <th>Level</th> <th>Wins</th> <th>Losses</th> <th>OverallWins</th> <th>OverallLosses</th> <th>Potions</th></tr>
+            <tr *ngFor="let entry of stats">
+            <td>{{entry.username}}</td><td>{{entry.Level}}</td><td>{{entry.Wins}}</td><td>{{entry.Losses}}</td><td>{{entry.OverallWins}}</td><td>{{entry.OverallLosses}}</td><td>{{entry.Potions}}</td></tr>
+        </table>
+    </ng-container>
+</div>
