@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     HttpClientModule,
     BrowserModule,
+    NgxDatatableModule,
     RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [
