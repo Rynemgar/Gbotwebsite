@@ -9,8 +9,34 @@ import { ApiService } from '../../shared/api.service';
 export class LeaderboardComponent implements OnInit {
 
   leaderboard = [];
+  rows = [];
+  loadingIndicator: boolean = true;
+  reorderable: boolean = true;
 
-  constructor(private apiService: ApiService) { }
+  columns = [
+    { name: 'Username', summaryFunc: () => null },
+    { prop: 'Level', summaryFunc: () => null },
+    { prop: 'Wins', summaryFunc: () => null },
+    { prop: 'Losses', summaryFunc: () => null }
+  ];
+
+  constructor(private apiService: ApiService) { 
+    this.fetch((leaderboard) => {
+      this.rows = leaderboard;
+      setTimeout(() => { this.loadingIndicator = false; }, 1500);
+    });
+  }
+
+  fetch(cb) {
+    const req = new XMLHttpRequest();
+    req.open('GET', `http://gbotapi.herokuapp.com/api/levels`);
+
+    req.onload = () => {
+      cb(JSON.parse(req.response));
+    };
+
+    req.send();
+  }
 
   ngOnInit() {
     this.apiService.getLeaderboard()
