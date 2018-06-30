@@ -11,7 +11,7 @@ import { ApiService } from '../../shared/api.service';
         Overall Stats
       </h3>
       <ngx-datatable
-        class="material"
+        class="dark"
         [rows]="stats"
         [loadingIndicator]="loadingIndicator"
         [columns]="columns"
@@ -19,7 +19,6 @@ import { ApiService } from '../../shared/api.service';
         [headerHeight]="40"
         [summaryRow]="true"
         [footerHeight]="40"
-        [limit]="10"
         [rowHeight]="'auto'"
         [reorderable]="reorderable">
       </ngx-datatable>
@@ -34,13 +33,13 @@ export class StatsComponent implements OnInit {
   reorderable: boolean = true;
 
   columns = [
-    { prop: 'Username', summaryFunc: () => null },
-    { name: 'Level', summaryFunc: () => null },
-    { name: 'Wins', summaryFunc: () => null },
-    { name: 'Losses', summaryFunc: () => null },
-    { name: 'Overall Wins', summaryFunc: () => null },
-    { name: 'Overall Losses', summaryFunc: () => null },
-    { name: 'Potions', summaryFunc: () => null }
+    { name: 'Username', summaryFunc: () => null },
+    { prop: 'Level', summaryFunc: () => null },
+    { prop: 'Wins', summaryFunc: () => null },
+    { prop: 'Losses', summaryFunc: () => null },
+    { prop: 'OverallWins', summaryFunc: () => null },
+    { prop: 'OverallLosses', summaryFunc: () => null },
+    { prop: 'Potions', summaryFunc: () => null }
   ];
 
   constructor(private apiService: ApiService) {
