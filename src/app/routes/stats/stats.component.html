@@ -1,9 +1,18 @@
-<div class="body">
-    <ng-container>
-        <table>
-            <tr><th>Username</th> <th>Level</th> <th>Wins</th> <th>Losses</th> <th>OverallWins</th> <th>OverallLosses</th> <th>Potions</th></tr>
-            <tr *ngFor="let entry of stats">
-            <td>{{entry.username}}</td><td>{{entry.Level}}</td><td>{{entry.Wins}}</td><td>{{entry.Losses}}</td><td>{{entry.OverallWins}}</td><td>{{entry.OverallLosses}}</td><td>{{entry.Potions}}</td></tr>
-        </table>
-    </ng-container>
-</div>
+<div>
+    <h3>
+      Overall Stats
+    </h3>
+    <ngx-datatable
+      class="material"
+      [rows]=<td>{{entry.username}}</td><td>{{entry.Level}}</td><td>{{entry.Wins}}</td><td>{{entry.Losses}}</td>
+      [loadingIndicator]="loadingIndicator"
+      [columns]="columns"
+      [columnMode]="'force'"
+      [headerHeight]="40"
+      [summaryRow]="true"
+      [footerHeight]="40"
+      [limit]="10"
+      [rowHeight]="'auto'"
+      [reorderable]="reorderable">
+    </ngx-datatable>
+  </div>
