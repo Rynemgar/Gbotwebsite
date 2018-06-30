@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/themes/dark.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+
 .content {
     margin: auto;
     background-color: linear-gradient(180deg,#081e63 0%,#001030 100%);
@@ -151,7 +156,7 @@ h1 {
   background-color: #001030;
 
   /* Set a specific height */
-  min-height: 75%; 
+  min-height: 75%;
 
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
@@ -171,7 +176,7 @@ h1 {
   max-width: 75%;
 }
 
-img { 
-  max-width: 100%; 
-  height: auto; 
+img {
+  max-width: 100%;
+  height: auto;
 }

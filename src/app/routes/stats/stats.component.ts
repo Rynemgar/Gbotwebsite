@@ -4,26 +4,7 @@ import { ApiService } from '../../shared/api.service';
 @Component({
   selector: 'app-stats',
   templateUrl: './stats.component.html',
-  styleUrls: ['./stats.component.css'],
-  template: `
-    <div class="body">
-      <h3 class="header">
-        Overall Stats
-      </h3>
-      <ngx-datatable
-        class="dark"
-        [rows]="stats"
-        [loadingIndicator]="loadingIndicator"
-        [columns]="columns"
-        [columnMode]="'force'"
-        [headerHeight]="40"
-        [summaryRow]="true"
-        [footerHeight]="40"
-        [rowHeight]="'auto'"
-        [reorderable]="reorderable">
-      </ngx-datatable>
-    </div>
-  `
+  styleUrls: ['./stats.component.scss']
 })
 export class StatsComponent implements OnInit {
 
@@ -67,6 +48,6 @@ export class StatsComponent implements OnInit {
       });
   }
 
-  
+
 
 }
