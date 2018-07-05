@@ -20,7 +20,10 @@ export class StatsComponent implements OnInit {
     { prop: 'Losses', summaryFunc: () => null },
     { prop: 'OverallWins', summaryFunc: () => null },
     { prop: 'OverallLosses', summaryFunc: () => null },
-    { prop: 'Potions', summaryFunc: () => null }
+    { prop: 'Potions', summaryFunc: () => null },
+    { prop: 'Strength', summaryFunc: () => null },
+    { prop: 'Defense', summaryFunc: () => null },
+    { prop: 'Agility', summaryFunc: () => null }
   ];
 
   constructor(private apiService: ApiService) {
