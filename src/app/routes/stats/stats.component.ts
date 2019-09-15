@@ -9,9 +9,8 @@ import { ApiService } from '../../shared/api.service';
 export class StatsComponent implements OnInit {
 
   stats = [];
-  rows = [];
-  loadingIndicator: boolean = true;
-  reorderable: boolean = true;
+  loadingIndicator = true;
+  reorderable = true;
 
   columns = [
     { name: 'Username', summaryFunc: () => null },
@@ -26,28 +25,14 @@ export class StatsComponent implements OnInit {
     { prop: 'Agility', summaryFunc: () => null }
   ];
 
-  constructor(private apiService: ApiService) {
-    this.fetch((stats) => {
-      this.rows = stats;
-      setTimeout(() => { this.loadingIndicator = false; }, 1500);
-    });
-  }
-
-  fetch(cb) {
-    const req = new XMLHttpRequest();
-    req.open('GET', `http://gbotapi.herokuapp.com/api/stats`);
-
-    req.onload = () => {
-      cb(JSON.parse(req.response));
-    };
-
-    req.send();
-  }
+  constructor(private apiService: ApiService) {}
 
   ngOnInit() {
+    this.loadingIndicator = true;
     this.apiService.getStats()
       .subscribe((stats: any[]) => {
         this.stats = stats;
+        this.loadingIndicator = false;
       });
   }
 
