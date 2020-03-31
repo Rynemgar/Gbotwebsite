@@ -1,5 +1,4 @@
 <head>
-  <script language="JavaScript" src="gen_validatorv31.js" type="text/javascript"></script>
 </head>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div class="body">
@@ -38,31 +37,20 @@
               <header class="w3-container w3-teal"> 
                 <span onclick="document.getElementById('id01').style.display='none'" 
                 class="w3-button w3-display-topright">&times;</span>
-                <h2 class="body"
-                >Order this item</h2>
+                <h2 class="body">Order this item</h2>
               </header>
               <div class="modal">
                 <p class="form">To order this range, please enter your customer account number, delivery address and Rep ID.</p>
-                <form class="form" method="POST" name="contactform" action="contact-form-handler.php"> 
-                  <p>
-                  <label for='Account Number'>Account Number:</label> <br>
-                  <input type="text" name="Account Number">
-                  </p>
-                  <p>
-                  <label for='Rep ID'>Rep ID:</label> <br>
-                  <input type="text" name="Rep ID"> <br>
-                  </p>
-                  <p>
-                  <label for='Address Line'>Address Line:</label> <br>
-                  <textarea name="Address Line"></textarea>
-                  </p>
-                  <input type="submit" value="Submit"><br>
-                  </form>  <script language="JavaScript">
-                    var frmvalidator  = new Validator("contactform");
-                    frmvalidator.addValidation("name","req","Please provide your name"); 
-                    frmvalidator.addValidation("email","req","Please provide your email"); 
-                    frmvalidator.addValidation("email","email","Please enter a valid email address"); 
-                    </script>
+                <form class="form" method="post" enctype="text/plain">
+                  Rep ID:<br>
+                  <input type="text" name="Rep ID"><br>
+                  Account Number:<br>
+                  <input type="text" name="Account Number"><br>
+                  Address Line:<br>
+                  <input type="text" name="Delivery Line"><br><br>
+                  <input class="btn2" type="submit" value="Send">
+                  <input class="btn2" type="reset" value="Reset">
+                  </form>
                   
               </div>
               <footer class="w3-container w3-teal">
