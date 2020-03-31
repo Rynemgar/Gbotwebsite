@@ -1,21 +1,76 @@
 <head>
+  <script language="JavaScript" src="gen_validatorv31.js" type="text/javascript"></script>
 </head>
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div class="body">
     <h1 class="header">Carpet Clearance</h1>
     <h2 class="header">
       The Mega Day carpet clearance list
     </h2>
+    
+
+</div>
+
     <ngx-datatable
       class="dark"
-      [rows]="leaderboard"
+      [rows]="carpet"
       [loadingIndicator]="loadingIndicator"
       [columns]="columns"
       [columnMode]="'force'"
       [headerHeight]="40"
-      [summaryRow]="true"
       [footerHeight]="40"
       [rowHeight]="'auto'"
       [reorderable]="reorderable">
-    </ngx-datatable><br>
+
+      <ngx-datatable-column name="ID" prop="ID"></ngx-datatable-column>
+      <ngx-datatable-column name="Range" prop="Range"></ngx-datatable-column>
+      <ngx-datatable-column name="Colour" prop="Colour"></ngx-datatable-column>
+      <ngx-datatable-column name="Size" prop="Size"></ngx-datatable-column>
+      <ngx-datatable-column name="Cost" prop="Cost"></ngx-datatable-column>
+      <ngx-datatable-column name="Value" prop="Value"></ngx-datatable-column>
+      <ngx-datatable-column name="Order" prop="action">
+        <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+          <!-- Trigger/Open the Modal -->
+          <button onclick="document.getElementById('id01').style.display='block'" class="btn">Order Item</button>
+
+          <div id="id01" class="w3-modal">
+            <div class="w3-modal-content w3-animate-bottom w3-card-4">
+              <header class="w3-container w3-teal"> 
+                <span onclick="document.getElementById('id01').style.display='none'" 
+                class="w3-button w3-display-topright">&times;</span>
+                <h2 class="body"
+                >Order this item</h2>
+              </header>
+              <div class="modal">
+                <p class="form">To order this range, please enter your customer account number, delivery address and Rep ID.</p>
+                <form class="form" method="POST" name="contactform" action="contact-form-handler.php"> 
+                  <p>
+                  <label for='Account Number'>Account Number:</label> <br>
+                  <input type="text" name="Account Number">
+                  </p>
+                  <p>
+                  <label for='Rep ID'>Rep ID:</label> <br>
+                  <input type="text" name="Rep ID"> <br>
+                  </p>
+                  <p>
+                  <label for='Address Line'>Address Line:</label> <br>
+                  <textarea name="Address Line"></textarea>
+                  </p>
+                  <input type="submit" value="Submit"><br>
+                  </form>  <script language="JavaScript">
+                    var frmvalidator  = new Validator("contactform");
+                    frmvalidator.addValidation("name","req","Please provide your name"); 
+                    frmvalidator.addValidation("email","req","Please provide your email"); 
+                    frmvalidator.addValidation("email","email","Please enter a valid email address"); 
+                    </script>
+                  
+              </div>
+              <footer class="w3-container w3-teal">
+              </footer>
+            </div>
+          </div>          
+        </ng-template>
+      </ngx-datatable-column>
+     
+    </ngx-datatable>
    

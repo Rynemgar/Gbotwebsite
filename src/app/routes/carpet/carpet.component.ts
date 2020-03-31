@@ -8,24 +8,26 @@ import { ApiService } from '../../shared/api.service';
 })
 export class CarpetComponent implements OnInit {
 
-  leaderboard = [];
+  carpet = [];
   rows = [];
   loadingIndicator = true;
   reorderable = true;
 
   columns = [
-    { name: 'Range', summaryFunc: () => null },
+    { prop: 'ID', summaryFunc: () => null },
+    { prop: 'Range', summaryFunc: () => null },
     { prop: 'Colour', summaryFunc: () => null },
     { prop: 'Size', summaryFunc: () => null },
-    { prop: 'Cost', summaryFunc: () => null }
+    { prop: 'Cost', summaryFunc: () => null },
+    { prop: 'Value', summaryFunc: () => null }
   ];
 
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
     this.apiService.getCarpet()
-      .subscribe((leaderboard: any[]) => {
-        this.leaderboard = leaderboard;
+      .subscribe((carpet: any[]) => {
+        this.carpet = carpet;
         this.loadingIndicator = false;
       });
   }

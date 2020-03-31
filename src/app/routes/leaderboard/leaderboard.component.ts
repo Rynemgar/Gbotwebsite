@@ -14,10 +14,10 @@ export class LeaderboardComponent implements OnInit {
   reorderable = true;
 
   columns = [
-    { name: 'Username', summaryFunc: () => null },
-    { prop: 'Level', summaryFunc: () => null },
-    { prop: 'Wins', summaryFunc: () => null },
-    { prop: 'Losses', summaryFunc: () => null }
+    { prop: 'Area', summaryFunc: () => null },
+    { prop: 'Name', summaryFunc: () => null },
+    { prop: 'Sales', summaryFunc: () => null },
+    { prop: 'Value', summaryFunc: () => null }
   ];
 
   constructor(private apiService: ApiService) {}
