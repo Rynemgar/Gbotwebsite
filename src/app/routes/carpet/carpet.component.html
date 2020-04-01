@@ -42,30 +42,30 @@
               <div class="modal">
                 <p class="form">To order this range, please enter your customer account number, delivery address and Rep ID.</p>
                 
-                <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+                <form class="form" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
  
                   <div>
                     <label for="Rep ID">
-                      Rep ID
+                      Rep ID<br>
                     </label>
                     <input id="Rep" type="text" formControlName="Rep">
                   </div>
                  
                   <div>
                     <label for="Account">
-                      Account Number
+                      Account Number<br>
                     </label>
                     <input id="Account" type="text" formControlName="Account">
                   </div>
 
                   <div>
                     <label for="address">
-                      Address
+                      Address<br>
                     </label>
                     <input id="Address" type="text" formControlName="Address">
                   </div>
                  
-                  <button class="button" type="submit">Purchase</button>
+                  <button class="button" type="submit">Order</button>
                  
                 </form>
                   

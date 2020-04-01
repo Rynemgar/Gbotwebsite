@@ -43,10 +43,7 @@ export class CarpetComponent implements OnInit {
   }
   onSubmit(customerData) {
     this.apiService.sendFormData(customerData)
-      .subscribe((carpet: any[]) => {
-        this.carpet = carpet;
-        this.loadingIndicator = false;
-      });
+      .subscribe();
     this.checkoutForm.reset();
  
     console.warn('Your order has been submitted', customerData);
