@@ -41,13 +41,13 @@
               </header>
               <div class="modal">
                 <p class="form">To order this range, please enter your customer account number, delivery address and Rep ID.</p>
-                <form class="form" method="post" enctype="text/plain">
+                <form class="form" method="post" action="http://gbotapi.herokuapp.com/">
                   Rep ID:<br>
-                  <input type="text" name="Rep ID"><br>
+                  <input id="rep" type="text" name="Rep ID"><br>
                   Account Number:<br>
-                  <input type="text" name="Account Number"><br>
+                  <input id="account" type="text" name="Account Number"><br>
                   Address Line:<br>
-                  <input type="text" name="Delivery Line"><br><br>
+                  <input id="address" type="text" name="Delivery Line"><br><br>
                   <input class="btn2" type="submit" value="Send">
                   <input class="btn2" type="reset" value="Reset">
                   </form>
