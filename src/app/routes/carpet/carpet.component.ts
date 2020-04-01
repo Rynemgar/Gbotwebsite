@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../shared/api.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-carpet',
@@ -7,7 +8,7 @@ import { ApiService } from '../../shared/api.service';
   styleUrls: ['./carpet.component.scss']
 })
 export class CarpetComponent implements OnInit {
-
+  checkoutForm;
   carpet = [];
   rows = [];
   loadingIndicator = true;
@@ -22,7 +23,15 @@ export class CarpetComponent implements OnInit {
     { prop: 'Value', summaryFunc: () => null }
   ];
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService,
+              private formBuilder: FormBuilder
+              ) {
+                this.checkoutForm = this.formBuilder.group({
+                  Rep: '',
+                  Account: '',
+                  Address: ''
+                });
+              }
 
   ngOnInit() {
     this.apiService.getCarpet()
@@ -30,6 +39,16 @@ export class CarpetComponent implements OnInit {
         this.carpet = carpet;
         this.loadingIndicator = false;
       });
+      
   }
-
+  onSubmit(customerData) {
+    this.apiService.sendFormData(customerData)
+      .subscribe((carpet: any[]) => {
+        this.carpet = carpet;
+        this.loadingIndicator = false;
+      });
+    this.checkoutForm.reset();
+ 
+    console.warn('Your order has been submitted', customerData);
+  }
 }

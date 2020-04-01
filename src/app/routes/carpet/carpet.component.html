@@ -41,16 +41,33 @@
               </header>
               <div class="modal">
                 <p class="form">To order this range, please enter your customer account number, delivery address and Rep ID.</p>
-                <form class="form" method="post" action="http://gbotapi.herokuapp.com/">
-                  Rep ID:<br>
-                  <input id="rep" type="text" name="Rep ID"><br>
-                  Account Number:<br>
-                  <input id="account" type="text" name="Account Number"><br>
-                  Address Line:<br>
-                  <input id="address" type="text" name="Delivery Line"><br><br>
-                  <input class="btn2" type="submit" value="Send">
-                  <input class="btn2" type="reset" value="Reset">
-                  </form>
+                
+                <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+ 
+                  <div>
+                    <label for="Rep ID">
+                      Rep ID
+                    </label>
+                    <input id="Rep" type="text" formControlName="Rep">
+                  </div>
+                 
+                  <div>
+                    <label for="Account">
+                      Account Number
+                    </label>
+                    <input id="Account" type="text" formControlName="Account">
+                  </div>
+
+                  <div>
+                    <label for="address">
+                      Address
+                    </label>
+                    <input id="Address" type="text" formControlName="Address">
+                  </div>
+                 
+                  <button class="button" type="submit">Purchase</button>
+                 
+                </form>
                   
               </div>
               <footer class="w3-container w3-teal">
