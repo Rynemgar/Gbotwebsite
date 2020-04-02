@@ -10,72 +10,65 @@
 
 </div>
 
-    <ngx-datatable
-      class="dark"
-      [rows]="carpet"
-      [loadingIndicator]="loadingIndicator"
-      [columns]="columns"
-      [columnMode]="'force'"
-      [headerHeight]="40"
-      [footerHeight]="40"
-      [rowHeight]="'auto'"
-      [reorderable]="reorderable">
+<table class="table">
+  <th>
+    <td>Range</td>
+    <td>Size</td>
+    <td>Colour</td>
+    <td>Cost</td>
+    <td>Value</td>
+    <td>Order</td>
+  
+  <tr *ngFor="let row of carpet;">
+     <td class="td2">{{row.ID}}</td>
+     <td>{{row.Range}}</td>
+     <td>{{row.Size}}</td>
+     <td>{{row.Colour}}</td>
+     <td>{{row.Cost}}</td>
+     <td>{{row.Value}}</td>
+     <td><button onclick="document.getElementById('id01').style.display='block'" class="btn">Order Item</button>
 
-      <ngx-datatable-column name="ID" prop="ID"></ngx-datatable-column>
-      <ngx-datatable-column name="Range" prop="Range"></ngx-datatable-column>
-      <ngx-datatable-column name="Colour" prop="Colour"></ngx-datatable-column>
-      <ngx-datatable-column name="Size" prop="Size"></ngx-datatable-column>
-      <ngx-datatable-column name="Cost" prop="Cost"></ngx-datatable-column>
-      <ngx-datatable-column name="Value" prop="Value"></ngx-datatable-column>
-      <ngx-datatable-column name="Order" prop="action">
-        <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
-          <!-- Trigger/Open the Modal -->
-          <button onclick="document.getElementById('id01').style.display='block'" class="btn">Order Item</button>
+      <div id="id01" class="w3-modal">
+        <div class="w3-modal-content w3-animate-bottom w3-card-4">
+          <header class="w3-container w3-teal"> 
+            <span onclick="document.getElementById('id01').style.display='none'" 
+            class="w3-button w3-display-topright">&times;</span>
+            <h2 class="body">Order this item</h2>
+          </header>
+          <div class="modal">
+            <p class="form">To order this range, please enter your customer account number, delivery address and Rep ID.</p>
+            
+            <form class="form" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value, row)">
 
-          <div id="id01" class="w3-modal">
-            <div class="w3-modal-content w3-animate-bottom w3-card-4">
-              <header class="w3-container w3-teal"> 
-                <span onclick="document.getElementById('id01').style.display='none'" 
-                class="w3-button w3-display-topright">&times;</span>
-                <h2 class="body">Order this item</h2>
-              </header>
-              <div class="modal">
-                <p class="form">To order this range, please enter your customer account number, delivery address and Rep ID.</p>
-                
-                <form class="form" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value, row)">
- 
-                  <div>
-                    <label for="Rep ID">
-                      Rep ID<br>
-                    </label>
-                    <input id="Rep" type="text" formControlName="Rep">
-                  </div>
-                 
-                  <div>
-                    <label for="Account">
-                      Account Number<br>
-                    </label>
-                    <input id="Account" type="text" formControlName="Account">
-                  </div>
-
-                  <div>
-                    <label for="address">
-                      Address<br>
-                    </label>
-                    <input id="Address" type="text" formControlName="Address">
-                  </div>
-                 
-                  <button class="button" type="submit">Order</button>
-                 
-                </form>
-                  
+              <div>
+                <label for="Rep ID">
+                  Rep ID<br>
+                </label>
+                <input id="Rep" type="text" formControlName="Rep">
               </div>
-              <footer class="w3-container w3-teal">
-              </footer>
-            </div>
-          </div>          
-        </ng-template>
-      </ngx-datatable-column>
-     
-    </ngx-datatable>
-   
+             
+              <div>
+                <label for="Account">
+                  Account Number<br>
+                </label>
+                <input id="Account" type="text" formControlName="Account">
+              </div>
+
+              <div>
+                <label for="address">
+                  Address<br>
+                </label>
+                <input id="Address" type="text" formControlName="Address">
+              </div>
+             
+              <button class="button" type="submit">Order</button>
+             
+            </form>
+            </div>              
+        </div>
+        </div>
+      </td>
+    </tr>
+</table>
+
+    

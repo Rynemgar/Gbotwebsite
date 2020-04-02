@@ -10,7 +10,6 @@ import { FormBuilder } from '@angular/forms';
 export class CarpetComponent implements OnInit {
   checkoutForm;
   carpet = [];
-  rows = [];
   loadingIndicator = true;
   reorderable = true;
 
