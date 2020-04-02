@@ -41,8 +41,11 @@ export class CarpetComponent implements OnInit {
       });
       
   }
-  onSubmit(customerData) {
-    this.apiService.sendFormData(customerData)
+  onSubmit(customerData, row) {
+    const data = {
+      customerData, row
+    };
+    this.apiService.sendFormData(data)
       .subscribe();
     this.checkoutForm.reset();
  
