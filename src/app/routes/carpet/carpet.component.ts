@@ -38,8 +38,13 @@ export class CarpetComponent implements OnInit {
         this.carpet = carpet;
         this.loadingIndicator = false;
       });
-      
+
   }
+
+  toggleModal(orderForm: HTMLElement, show = true) {
+    orderForm.style.display = show ? 'block' : 'none';
+  }
+
   onSubmit(customerData, row) {
     const data = {
       customerData, row
@@ -47,7 +52,7 @@ export class CarpetComponent implements OnInit {
     this.apiService.sendFormData(data)
       .subscribe();
     this.checkoutForm.reset();
- 
+
     console.warn('Your order has been submitted', customerData);
   }
 }

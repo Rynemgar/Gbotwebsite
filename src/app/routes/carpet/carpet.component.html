@@ -6,39 +6,39 @@
     <h2 class="header">
       The Mega Day carpet clearance list
     </h2>
-    
+
 
 </div>
 
 <table class="table">
-  <th>
-    <td>Range</td>
-    <td>Size</td>
-    <td>Colour</td>
-    <td>Cost</td>
-    <td>Value</td>
-    <td>Order</td>
-  </th>
-  
-  <tr *ngFor="let row of carpet;">
+  <tr>
+    <th>Range</th>
+    <th>Size</th>
+    <th>Colour</th>
+    <th>Cost</th>
+    <th>Value</th>
+    <th>Order</th>
+  </tr>
+
+  <tr *ngFor="let row of carpet; let idx = index;">
      <td class="td2">{{row.ID}}</td>
      <td>{{row.Range}}</td>
      <td>{{row.Size}}</td>
      <td>{{row.Colour}}</td>
      <td>{{row.Cost}}</td>
      <td>{{row.Value}}</td>
-     <td><button onclick="document.getElementById('id01').style.display='block'" class="btn">Order Item</button>
+     <td><button (click)="toggleModal(orderForm)" class="btn">Order Item</button>
 
-      <div id="id01" class="w3-modal">
+      <div #orderForm class="w3-modal">
         <div class="w3-modal-content w3-animate-bottom w3-card-4">
-          <header class="w3-container w3-teal"> 
-            <span onclick="document.getElementById('id01').style.display='none'" 
+          <header class="w3-container w3-teal">
+            <span (click)="toggleModal(orderForm, false)"
             class="w3-button w3-display-topright">&times;</span>
             <h2 class="body">Order this item</h2>
           </header>
           <div class="modal">
             <p class="form">To order this range, please enter your customer account number, delivery address and Rep ID.</p>
-            
+
             <form class="form" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value, row)">
 
               <div>
@@ -47,7 +47,7 @@
                 </label>
                 <input id="Rep" type="text" formControlName="Rep">
               </div>
-             
+
               <div>
                 <label for="Account">
                   Account Number<br>
@@ -61,15 +61,15 @@
                 </label>
                 <input id="Address" type="text" formControlName="Address">
               </div>
-             
+
               <button class="button" type="submit">Order</button>
-             
+
             </form>
-            </div>              
+            </div>
         </div>
         </div>
       </td>
     </tr>
 </table>
 
-    
+
