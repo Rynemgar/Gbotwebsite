@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../shared/api.service';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ApiService, Carpet } from '../../shared/api.service';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -9,7 +9,8 @@ import { FormBuilder } from '@angular/forms';
 })
 export class CarpetComponent implements OnInit {
   checkoutForm;
-  carpet = [];
+  fullCarpetList: Carpet[] = [];
+  carpet: Carpet[] = [];
   loadingIndicator = true;
   reorderable = true;
 
@@ -22,8 +23,12 @@ export class CarpetComponent implements OnInit {
     { prop: 'Value', summaryFunc: () => null }
   ];
 
+  sortField: keyof Carpet;
+  sortDir: 'asc' | 'desc';
+
   constructor(private apiService: ApiService,
-              private formBuilder: FormBuilder
+              private formBuilder: FormBuilder,
+              private ref: ChangeDetectorRef
               ) {
                 this.checkoutForm = this.formBuilder.group({
                   Rep: '',
@@ -35,10 +40,35 @@ export class CarpetComponent implements OnInit {
   ngOnInit() {
     this.apiService.getCarpet()
       .subscribe((carpet: any[]) => {
-        this.carpet = carpet;
+        this.fullCarpetList = carpet;
+        this.sortCarpets('ID');
         this.loadingIndicator = false;
       });
+  }
 
+  sortCarpets(field: keyof Carpet): void {
+    if (field === this.sortField) {
+      this.sortDir = this.sortDir === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortField = field;
+      this.sortDir = 'asc';
+    }
+
+    this.carpet = this.fullCarpetList.sort((a, b) => {
+      if (field === 'ID') {
+        return this.sortDir === 'asc' ? a[field] - b[field] : b[field] - a[field];
+      } else {
+        if (a[field] > b[field]) {
+          return this.sortDir === 'asc' ? 1 : -1;
+        }
+        if (b[field] > a[field]) {
+          return this.sortDir === 'asc' ? -1 : 1;
+        }
+        return 0;
+      }
+    });
+
+    this.ref.detectChanges();
   }
 
   toggleModal(orderForm: HTMLElement, show = true) {
@@ -54,5 +84,9 @@ export class CarpetComponent implements OnInit {
     this.checkoutForm.reset();
 
     console.warn('Your order has been submitted', customerData);
+  }
+
+  trackBy(idx, carpet) {
+    return carpet.ID;
   }
 }

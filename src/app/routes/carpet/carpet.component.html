@@ -12,15 +12,16 @@
 
 <table class="table">
   <tr>
-    <th>Range</th>
-    <th>Size</th>
-    <th>Colour</th>
-    <th>Cost</th>
-    <th>Value</th>
+    <th (click)="sortCarpets('ID')">ID</th>
+    <th (click)="sortCarpets('Range')">Range</th>
+    <th (click)="sortCarpets('Size')">Size</th>
+    <th (click)="sortCarpets('Colour')">Colour</th>
+    <th (click)="sortCarpets('Cost')">Cost</th>
+    <th (click)="sortCarpets('Value')">Value</th>
     <th>Order</th>
   </tr>
 
-  <tr *ngFor="let row of carpet; let idx = index;">
+  <tr *ngFor="let row of carpet; trackBy: trackBy">
      <td class="td2">{{row.ID}}</td>
      <td>{{row.Range}}</td>
      <td>{{row.Size}}</td>
