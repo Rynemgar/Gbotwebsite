@@ -53,6 +53,7 @@ export class CarpetComponent implements OnInit {
       this.socket.subscribe('carpet.update')
         .pipe(
           tap((update: any) => {
+            console.log(`Updating Carpet`, update);
             const carpet = this.carpet.find(cpt => cpt.ID === update.ID);
             carpet.State = update.State;
           })
