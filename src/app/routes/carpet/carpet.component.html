@@ -28,7 +28,7 @@
      <td>{{row.Colour}}</td>
      <td>{{row.Cost}}</td>
      <td>{{row.Value}}</td>
-     <td><button (click)="toggleModal(orderForm)" class="btn">Order Item</button>
+     <td><button [disabled]="['Locked', 'Sold'].includes(row.State)" (click)="toggleModal(orderForm)" class="btn">{{row.State === 'Locked' ? 'Locked' : row.State === 'Sold' ? 'Sold' : 'Order'}}</button>
 
       <div #orderForm class="w3-modal">
         <div class="w3-modal-content w3-animate-bottom w3-card-4">

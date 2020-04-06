@@ -26,7 +26,8 @@ export class ApiService {
             Size: carpet.Size,
             Cost: carpet.Cost,
             Value: carpet.Value,
-            Purchased: carpet.Purchased === 'true'
+            Purchased: carpet.Purchased === 'true',
+            State: carpet.State
           })
         );
       }));
@@ -45,6 +46,7 @@ export interface RawCarpet {
   Cost: string;
   Value: string;
   Purchased: string;
+  State: string;
 }
 export interface Carpet {
   ID: number;
@@ -54,4 +56,5 @@ export interface Carpet {
   Cost: string;
   Value: string;
   Purchased: boolean;
+  State: string;
 }

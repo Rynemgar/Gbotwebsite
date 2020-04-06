@@ -1,6 +1,8 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ApiService, Carpet } from '../../shared/api.service';
 import { FormBuilder } from '@angular/forms';
+import { tap } from 'rxjs/operators';
+import { SocketService } from '../../shared/socket.service';  
 
 @Component({
   selector: 'app-carpet',
@@ -11,6 +13,7 @@ export class CarpetComponent implements OnInit {
   checkoutForm;
   fullCarpetList: Carpet[] = [];
   carpet: Carpet[] = [];
+  state: Carpet[] = [];
   loadingIndicator = true;
   reorderable = true;
 
@@ -25,10 +28,12 @@ export class CarpetComponent implements OnInit {
 
   sortField: keyof Carpet;
   sortDir: 'asc' | 'desc';
+  
 
   constructor(private apiService: ApiService,
               private formBuilder: FormBuilder,
-              private ref: ChangeDetectorRef
+              private ref: ChangeDetectorRef,
+              private socket: SocketService
               ) {
                 this.checkoutForm = this.formBuilder.group({
                   Rep: '',
@@ -44,7 +49,17 @@ export class CarpetComponent implements OnInit {
         this.sortCarpets('ID');
         this.loadingIndicator = false;
       });
-  }
+      this.socket.subscribe('carpet.update')
+        .pipe(
+          tap((update: any) => {
+            const carpet = this.carpet.find(cpt => cpt.ID === update.ID);
+            carpet.State = update.State;
+          })
+        )
+        .subscribe();
+      }
+    
+  
 
   sortCarpets(field: keyof Carpet): void {
     if (field === this.sortField) {
@@ -82,6 +97,7 @@ export class CarpetComponent implements OnInit {
     this.apiService.sendFormData(data)
       .subscribe();
     this.checkoutForm.reset();
+    row.State = 'Sold';
 
     console.warn('Your order has been submitted', customerData);
   }
