@@ -58,12 +58,12 @@
 
               <div>
                 <label for="address">
-                  Address<br>
+                  Delivery Address<br>
                 </label>
                 <input id="Address" type="text" formControlName="Address">
               </div>
 
-              <button class="button" type="submit">Order</button>
+              <button class="button" type="submit" (click)="toggleModal(orderForm, false)">Order</button>
 
             </form>
             </div>
