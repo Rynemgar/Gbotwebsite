@@ -28,12 +28,12 @@
      <td>{{row.Colour}}</td>
      <td>{{row.Cost}}</td>
      <td>{{row.Value}}</td>
-     <td><button [disabled]="['Locked', 'Sold'].includes(row.State)" (click)="toggleModal(orderForm)" class="btn">{{row.State === 'Locked' ? 'Locked' : row.State === 'Sold' ? 'Sold' : 'Order'}}</button>
+     <td><button [disabled]="['locked', 'sold'].includes(row.State)" (click)="toggleModal(orderForm, true, row)" class="btn">{{row.State === 'locked' ? 'Locked' : row.State === 'sold' ? 'Sold' : 'Order'}}</button>
 
       <div #orderForm class="w3-modal">
         <div class="w3-modal-content w3-animate-bottom w3-card-4">
           <header class="w3-container w3-teal">
-            <span (click)="toggleModal(orderForm, false)"
+            <span (click)="toggleModal(orderForm, false, row)"
             class="w3-button w3-display-topright">&times;</span>
             <h2 class="body">Order this item</h2>
           </header>
@@ -63,7 +63,7 @@
                 <input id="Address" type="text" formControlName="Address">
               </div>
 
-              <button class="button" type="submit" (click)="toggleModal(orderForm, false)">Order</button>
+              <button class="button" type="submit" (click)="toggleModal(orderForm, false, row)">Order</button>
 
             </form>
             </div>

@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ApiService, Carpet } from '../../shared/api.service';
 import { FormBuilder } from '@angular/forms';
 import { tap } from 'rxjs/operators';
-import { SocketService } from '../../shared/socket.service';  
+import { SocketService } from '../../shared/socket.service';
 
 @Component({
   selector: 'app-carpet',
@@ -28,7 +28,7 @@ export class CarpetComponent implements OnInit {
 
   sortField: keyof Carpet;
   sortDir: 'asc' | 'desc';
-  
+
 
   constructor(private apiService: ApiService,
               private formBuilder: FormBuilder,
@@ -43,6 +43,7 @@ export class CarpetComponent implements OnInit {
               }
 
   ngOnInit() {
+    this.socket.connect();
     this.apiService.getCarpet()
       .subscribe((carpet: any[]) => {
         this.fullCarpetList = carpet;
@@ -58,8 +59,8 @@ export class CarpetComponent implements OnInit {
         )
         .subscribe();
       }
-    
-  
+
+
 
   sortCarpets(field: keyof Carpet): void {
     if (field === this.sortField) {
@@ -86,18 +87,38 @@ export class CarpetComponent implements OnInit {
     this.ref.detectChanges();
   }
 
-  toggleModal(orderForm: HTMLElement, show = true) {
+  toggleModal(orderForm: HTMLElement, show = true, carpet: Carpet) {
     orderForm.style.display = show ? 'block' : 'none';
+    if (show) {
+      carpet.State = 'locked';
+      this.socket.emit('carpet.update', {
+        ID: carpet.ID,
+        State: 'locked'
+      });
+    } else {
+      if (carpet.State !== 'sold') {
+        carpet.State = 'unlocked';
+        this.socket.emit('carpet.update', {
+          ID: carpet.ID,
+          State: 'unlocked'
+        });
+      }
+    }
   }
 
-  onSubmit(customerData, row) {
+  onSubmit(customerData: any, row: Carpet) {
     const data = {
       customerData, row
     };
     this.apiService.sendFormData(data)
       .subscribe();
     this.checkoutForm.reset();
-    row.State = 'Sold';
+
+    row.State = 'sold';
+    this.socket.emit('carpet.update', {
+      ID: row.ID,
+      State: 'sold'
+    });
 
     console.warn('Your order has been submitted', customerData);
   }

@@ -9,13 +9,13 @@ import { Observable, timer } from 'rxjs';
 
 export class SocketService {
     private socket;
-    
+
     subscriptions = new Map();
     connected = false;
 
     constructor() {}
 
-    connect(payload) {
+    connect() {
         this.socket = io.connect('https://gbotapi.herokuapp.com');
 
         this.socket.on('connect', () => {
@@ -27,9 +27,12 @@ export class SocketService {
             this.connected = false;
             console.log('connection to socket destroyed');
         });
-
-        this.socket.emit('carpet.sale', payload);
     }
+
+    emit(topic: string, payload: any) {
+      this.socket.emit(topic, payload);
+    }
+
     subscribe(topic) {
         if (this.socket && this.connected) {
           if (this.subscriptions.has(topic)) {
@@ -51,5 +54,5 @@ export class SocketService {
               return this.subscribe(topic);
             }));
         }
-    }   
+    }
 }
